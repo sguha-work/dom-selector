@@ -2,7 +2,11 @@ window.__ = domSelect = (function(queryString) {
     var qp = new QueryParser(),
         queryArray = qp.splitQueryStringToProduceQueryArray(queryString),
         doms = qp.executeQueries(queryArray);
-    return ((doms.length>1)?doms:(doms.length?doms[0]:0));
+    if(typeof doms != "undefined") {
+        return ((doms.length>1)?doms:(doms.length?doms[0]:0));
+    } else {
+        return false;
+    }
 });
 
 var QueryParser = (function() {
