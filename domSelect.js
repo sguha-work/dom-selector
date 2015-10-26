@@ -6,7 +6,7 @@ window.__ = domSelect = (function(queryString) {
         var queryDelimeter = " ", // queries should be space separated
             selectDomsByClassName = (function(doms, className){
                 var index, tempDomsArray;
-                if(doms == null) {console.log(document.getElementsByClassName(className));
+                if(doms == null) {
                     return document.getElementsByClassName(className);
                 } else {
                     for(index=0; index<doms.length; index++) {
@@ -17,6 +17,19 @@ window.__ = domSelect = (function(queryString) {
                     return tempDomsArray;
                 }
             }),
+            selectDomById = (function(doms, id){
+                var index, tempDomsArray;
+                if(doms == null) {
+                    return document.getElementById(id);
+                } else {
+                    for(index=0; index<doms.length; index++) {
+                        if(doms[index].id==id) {
+                            return doms[index];
+                        }
+                    }
+                    
+                }
+            }),
             getDomFilteredByQuery = (function(doms, query) {
                 if(query[0]=="." || query[0]=="#" || query[0]=="_") {
                     switch (query[0]) {
@@ -24,6 +37,7 @@ window.__ = domSelect = (function(queryString) {
                             doms = selectDomsByClassName(doms, query.substr(1, (query.length-1)));
                         break;
                         case "#":
+                            doms = selectDomById(doms, query.substr(1, (query.length-1)));
                         break;
                         case "_":
                         break;
