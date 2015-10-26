@@ -5,10 +5,16 @@ window.__ = domSelect = (function(queryString) {
 
         var queryDelimeter = " ", // queries should be space separated
             selectDomsByClassName = (function(doms, className){
+                var index, tempDomsArray;
                 if(doms == null) {console.log(document.getElementsByClassName(className));
                     return document.getElementsByClassName(className);
                 } else {
-
+                    for(index=0; index<doms.length; index++) {
+                        if(doms[index].className.indexOf(className)!=-1) {
+                            tempDomsArray.push(doms[index]);
+                        }
+                    }
+                    return tempDomsArray;
                 }
             }),
             getDomFilteredByQuery = (function(doms, query) {
