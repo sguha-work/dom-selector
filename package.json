@@ -14,6 +14,7 @@
     "grunt": "^1.0.1",
     "grunt-combine-js": "^0.1.14",
     "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
     "typescript": "^2.4.2"
   },
   "scripts": {

@@ -18,10 +18,20 @@ module.exports = function(grunt) {
     clean: {
       js: ['development/**/*.js', '!development/**/*.ts'],
       map: ['development/**/*.map']
+    },
+    watch: {
+      scripts: {
+        files: ['development/**/*.ts'],
+        tasks: ['default'],
+        options: {
+          spawn: false,
+        },
+      },
     }
   });
   grunt.loadNpmTasks("grunt-ts");
   grunt.loadNpmTasks("grunt-combine-js");
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask("default", ["ts", "combine_js", "clean"]);
 };
