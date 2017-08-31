@@ -1,0 +1,20 @@
+[
+    {
+        "modules": [
+            "development/main.js",
+            "development/classes/DomSelector.js"
+        ],
+        "dest_name": "domSelector.js",
+        "dest_path": "prod/",
+        "useBase": false
+    },
+    {
+        "modules": [
+            "development/main.js.map",
+            "development/classes/DomSelector.js.map"
+        ],
+        "dest_name": "domSelector.js.map",
+        "dest_path": "prod/",
+        "useBase": false
+    }
+]

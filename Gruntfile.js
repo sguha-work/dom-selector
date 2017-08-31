@@ -4,8 +4,24 @@ module.exports = function(grunt) {
       default : {
         src: ["development/**/*.ts", "!node_modules/**"]
       }
+    },
+    
+    combine_js: {
+    files: [{
+      src: 'build.json',
+      combine_folder: '',
+      additional_files: [],
+      base_files: []
+    }]
+  },
+    
+    clean: {
+      js: ['development/**/*.js', '!development/**/*.ts'],
+      map: ['development/**/*.map']
     }
   });
   grunt.loadNpmTasks("grunt-ts");
-  grunt.registerTask("default", ["ts"]);
+  grunt.loadNpmTasks("grunt-combine-js");
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.registerTask("default", ["ts", "combine_js", "clean"]);
 };
